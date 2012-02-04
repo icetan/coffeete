@@ -1,0 +1,14 @@
+{
+    "name": "coffeete"
+  , "description": "Simple string templating with coffee-script string interpolation."
+  , "version": "0.0.1"
+  , "homepage": "https://github.com/icetan/coffeete"
+  , "author": "Christopher Fredén <c.freden@gmail.com>"
+  , "keywords": ["coffee-script", "template"]
+  , "repository": {
+        "type": "git"
+      , "url": "https://github.com/icetan/coffeete.git"
+    }
+  , "main": "./src/coffeete.js"
+  , "ender": "./src/ender.js"
+}
