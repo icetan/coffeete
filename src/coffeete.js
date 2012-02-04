@@ -11,9 +11,7 @@
   else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
   else this[name] = definition()
 }('coffeete', function () {
-  var coffeescript = (function () {
-    })()
-    , text = (function () {
+  var text = (function () {
       if (typeof window !== 'undefined') {
         var div = document.createElement('div');
         return function (str) {
