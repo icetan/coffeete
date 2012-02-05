@@ -12,7 +12,7 @@ string interpolation. The tool chain: CoffeeTe -> CoffeeScript
 
 ### Our template
 
-```html
+```
 <script id="about-me" type="text/x-coffeete">
   <h1>#{cap name}</h1>
   <p>
