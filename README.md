@@ -2,6 +2,21 @@
 
 _Templating with CoffeeScript_
 
+## Installation
+
+Open your cozy terminal and write:
+
+    git clone git://github.com/icetan/coffeete.git
+    cd coffeete
+
+### With NPM for Node.js
+
+    npm install
+
+### Or with Ender for the browser
+
+    ender build .
+
 ## How
 
 It is very simple and very little code. It uses the CoffeeScript compiler for
