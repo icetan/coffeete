@@ -44,7 +44,7 @@ var view = {
 ### In the browser
 
 ```javascript
-var str = document.getElementById('about-me')
+var str = document.getElementById('about-me').text
   // Compile a CoffeeTe string to a template function ready to recieve data.
   , template = coffeete(str)
   // Run our compiled template with the view data to get a ready HTML string.
