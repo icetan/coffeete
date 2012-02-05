@@ -26,7 +26,7 @@
 
   function comp(str) {
     var len = str.indexOf('\n')
-      , txt = '"""'+str.slice(len+1)+'""" '
+      , txt = '"""'+str.slice(len)+'""" '
       , cs = text(str.slice(0,len))
       , dot = dotRe.test(cs);
     if (dot) {
@@ -58,7 +58,7 @@
       }
       str = str.slice(len+2);
     }
-    return '"""'+res[0]+'"""';
+    return '"""'+res[0].replace(/\n/g, '\\n')+'"""';
   }
 
   function coffeete(str) {
