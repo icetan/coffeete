@@ -66,18 +66,25 @@ fs.writeFile('about-me.html', html);
 ```
 
 ### The result
-_Note: known problem with keeping correct indentation and linebreaks when using !{ }!_
 
 ```html
 <h1>Christopher</h1>
 <p>
   I like grapefriut.
 </p>
-<ul><li class="odd">
-  Computers
-</li><li class="even">
-  Martial Arts
-</li><li class="odd">
-  Coffee
-</li></ul>
+<ul>
+  
+    <li class="odd">
+      Computers
+    </li>
+  
+    <li class="even">
+      Martial Arts
+    </li>
+  
+    <li class="odd">
+      Coffee
+    </li>
+  
+</ul>
 ```
