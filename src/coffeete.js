@@ -32,7 +32,7 @@
     if (dot) {
       return '"""+('+cs.replace(dotRe, '$1'+txt+'$2')+')+"""';
     } else {
-      return '"""+('+txt+cs+').join(\'\')+"""';
+      return '"""+(if (_lst=('+txt+cs+')) then (if _lst.join then _lst.join(\'\') else _lst) else \'\')+"""';
     }
   }
 
