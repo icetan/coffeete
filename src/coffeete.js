@@ -7,9 +7,28 @@
  */
 
 !function (name, definition) {
-  if (typeof module != 'undefined') module.exports = definition()
-  else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
-  else this[name] = definition()
+  if (typeof module !== 'undefined') {
+    var fs, coffeete = module.exports = definition();
+    if (typeof require !== 'undefined') {
+      // Add Node.js extensions
+      if (typeof require.extensions !== 'undefined') {
+        fs = require('fs');
+        require.extensions['.coffeete'] = function (module, filename) {
+          var content = fs.readFileSync(filename, 'utf8');
+          module._compile('module.exports='+coffeete.toJavaScript(content), filename);
+        };
+      } else if (typeof require.registerExtension !== 'undefined') {
+        // Remove when registerExtension is depricated
+        require.registerExtension('.coffeete', function (content) {
+          return 'module.exports='+coffeete.toJavaScript(content);
+        });
+      }
+    }
+  } else if (typeof define === 'function' && typeof define.amd === 'object') {
+    define(definition);
+  } else {
+    this[name] = definition();
+  }
 }('coffeete', function () {
   var text = (function () {
       if (typeof window !== 'undefined') {
@@ -61,11 +80,18 @@
     return '"""'+res[0].replace(/\n/g, '\\n')+'"""';
   }
 
-  function coffeete(str) {
+  function toJavaScriptFunction(str) {
     var cs = parse(str)
-      , js = coffeete.coffeeScriptCompile('return '+cs);
-    return eval('var f=function(v){with(v){return '+js+'}};f');
+      , js = coffeete.coffeeScriptCompile('return '+cs, {bare:true});
+    return 'function(v){with(v){'+js+'}}';
   }
+
+  function coffeete(str) {
+    var js = toJavaScriptFunction(str);
+    return eval('var f='+js+';f');
+  }
+
+  coffeete.toJavaScript = toJavaScriptFunction;
 
   coffeete.coffeeScriptCompile = typeof CoffeeScript !== 'undefined'
     ? CoffeeScript.compile
