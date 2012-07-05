@@ -83,7 +83,7 @@
   function toJavaScriptFunction(str) {
     var cs = parse(str)
       , js = coffeete.coffeeScriptCompile('return '+cs, {bare:true});
-    return 'function(v){with(v){'+js+'}}';
+    return 'function(v){with(v||{}){'+js+'}}';
   }
 
   function coffeete(str) {
