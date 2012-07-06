@@ -1,7 +1,7 @@
 {
     "name": "coffeete"
   , "description": "Simple templating with coffee-script string interpolation."
-  , "version": "0.0.1"
+  , "version": "0.0.2"
   , "homepage": "https://github.com/icetan/coffeete"
   , "author": "Christopher Fredén <c.freden@gmail.com>"
   , "keywords": ["coffee-script", "template"]
