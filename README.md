@@ -31,8 +31,8 @@ string interpolation. The tool chain: CoffeeTe -> CoffeeScript
     #{about}
   </p>
   <ul>
-    !{for hobby in hobbies
-      <li class="#{if _i%2 then 'even' else 'odd'}">
+    !{for hobby, i in hobbies
+      <li class="#{if i % 2 then 'even' else 'odd'}">
         #{hobby}
       </li>
     }!
