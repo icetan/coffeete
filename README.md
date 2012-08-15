@@ -6,9 +6,7 @@ _Templating with CoffeeScript_
 
 ### With NPM for Node.js
 
-_Note: Because of incompatibility with Ender.js the dependence on CoffeeScript will not be installed automatically._
-
-    npm install coffee-script coffeete
+    npm install coffeete
 
 ### Or with Ender.js for the browser
 
@@ -17,8 +15,8 @@ _Note: Because of incompatibility with Ender.js the dependence on CoffeeScript w
 ## How
 
 It is very simple and very little code. It uses the CoffeeScript compiler for
-string interpolation. The tool chain: CoffeeTe -> CoffeeScript
--> JavaScript.
+string interpolation. The tool chain: CoffeeTe → CoffeeScript
+→ JavaScript.
 
 ## Examples
 
