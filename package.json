@@ -10,7 +10,7 @@
       , "url": "https://github.com/icetan/coffeete.git"
     }
   , "dependencies": {
-        "coffee-script": "~1.2"
+        "coffee-script-browser": "~1.3"
     }
   , "main": "./src/coffeete.js"
   , "ender": "noop"
