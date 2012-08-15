@@ -6,15 +6,17 @@ _Templating with CoffeeScript_
 
 ### With NPM for Node.js
 
-    npm install coffeete
+_Note: Because of incompatibility with Ender.js the dependence on CoffeeScript will not be installed automatically._
+
+    # npm install coffeete coffee-script
 
 ### Or with Ender.js for the browser
 
-    ender build coffeete
+    # ender build coffeete
 
 ## How
 
-It is very simple and very little code. It uses the CoffeeScript compiler for
+It is very simple and very lightweight. It uses the CoffeeScript compiler for
 string interpolation. The tool chain: CoffeeTe → CoffeeScript
 → JavaScript.
 
@@ -75,6 +77,16 @@ var str = fs.readFileSync('about-me.chtml').toString()
 fs.writeFile('about-me.html', html);
 ```
 
+Or use the ```.coffeete``` file extension to automatically compile your template.
+Now importing your ```about-me.coffeete``` can be done with ```require```.
+
+```javascript
+var template = require('./about-me')
+  , html = template(view);
+
+fs.writeFile('about-me.html', html);
+```
+
 ### The result
 
 ```html
@@ -98,3 +110,20 @@ fs.writeFile('about-me.html', html);
   
 </ul>
 ```
+
+## Pre-compiling
+
+The downside, specialy when running in the browser, is the dependency on
+CoffeeScript at runtime and the need to compile your CoffeeTe templates
+runtime. Therfore you can pre compile your templates into pure JavaScript and
+save them as CommonJS compliant modules.
+
+    # npm install -g coffeete coffee-script
+
+Now we have installed the CoffeeTe CLI globaly.
+
+    # coffeete about-me.chtml > about-me.js
+
+Or, if you prefere.
+
+    # cat about-me.chtml | coffeete > about-me.js
