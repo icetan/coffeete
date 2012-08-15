@@ -1,0 +1,13 @@
+<script id="about-me" type="text/x-coffeete">
+  <h1>#{cap name}</h1>
+  <p>
+    #{about}
+  </p>
+  <ul>
+    !{for hobby in hobbies
+      <li class="#{if _i%2 then 'even' else 'odd'}">
+        #{hobby}
+      </li>
+    }!
+  </ul>
+</script>
