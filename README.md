@@ -17,7 +17,9 @@ _Note: Because of incompatibility with Ender.js the dependence on CoffeeScript w
 ## How
 
 It is very simple and very lightweight. It uses the CoffeeScript compiler for
-string interpolation. The tool chain: CoffeeTe → CoffeeScript
+string interpolation.
+
+The tool chain: CoffeeTe → CoffeeScript
 → JavaScript.
 
 ## Examples
@@ -110,6 +112,45 @@ fs.writeFile('about-me.html', html);
   
 </ul>
 ```
+
+### Escaping nested interpolations
+
+The only addition to the CoffeeScript interpolation syntax is ```!{``` and
+```}!```, which is used to escape nested interpolations.
+
+```
+!{for key, value of obj
+  <div class="#{key}">#{value}</div>
+}!
+```
+
+Is the equivalent of pure CoffeeScript's
+
+```coffeescript
+"""#{("<div class=\"#{key}\">#{value}</div>" for key, value of obj).join ''}"""
+```
+
+The advantage is that you don't need to escape your quotes and you can put your
+```for``` declaration at the begining of the block instead of at the end.
+
+Default behavior is to use the text starting at the first line break after
+```!{``` and everything to the matching ```}!``` and insert it before the statement
+directly after ```!{```. Then joining the result with an empty string. Like the
+example above.
+
+If you want to use a block of text in an ```if``` statement or any other way, you
+can use the magic ```.```. This will replace the ```.``` with whatever is in your
+text block.
+
+```
+!{ . if showMoreInfo
+  <p>
+    Some very interesting details you might want to read about.
+  </p>
+}!
+```
+
+This will output the text inside the braces if ```showMoreInfo``` is truthy.
 
 ## Pre-compiling
 
