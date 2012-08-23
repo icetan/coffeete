@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/icetan/coffeete.png)](http://travis-ci.org/icetan/coffeete)
 # CoffeeTe
 
 _Templating with CoffeeScript_
